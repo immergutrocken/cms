@@ -27,10 +27,20 @@ export default createSchema({
                     type: 'localeString'
                 },
                 {
+                    title: 'Untertitel',
+                    name: 'subtitle',
+                    type: 'localeString'
+                },
+                {
                     title: 'Banner',
                     name: 'banner',
                     type: 'localeImage'
-                }
+                },
+                {
+                    title: 'Autor',
+                    name: 'author',
+                    type: 'string'
+                },
             ],
             preview: {
               select: {
