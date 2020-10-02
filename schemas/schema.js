@@ -3,6 +3,7 @@ import createSchema from 'part:@sanity/base/schema-creator'
 
 // Then import schema types from any plugins that might expose them
 import schemaTypes from 'all:part:@sanity/base/schema-type'
+import { RiArticleLine } from 'react-icons/ri'
 import localeString from "./localeString";
 import localeImage from "./localeImage";
 
@@ -19,6 +20,7 @@ export default createSchema({
         {
             title: 'Artikel',
             name: 'article',
+            icon: RiArticleLine,
             type: 'document',
             fields: [
                 {
@@ -44,7 +46,8 @@ export default createSchema({
             ],
             preview: {
               select: {
-                title: 'title.de'
+                title: 'title.de',
+                media: 'banner'
               }
             }
         }
