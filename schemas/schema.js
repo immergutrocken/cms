@@ -43,6 +43,12 @@ export default createSchema({
                     name: 'author',
                     type: 'string'
                 },
+                {
+                    title: 'Inhalt',
+                    name: 'content',
+                    type: 'array',
+                    of: [{type: 'block'}]
+                }
             ],
             preview: {
               select: {
