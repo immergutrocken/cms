@@ -8,13 +8,22 @@ import { RiArticleLine } from "react-icons/ri";
 import localeString from "./localeString";
 import localeImage from "./localeImage";
 
-function slugifyy(input, type) {
-  const slug = input.toLowerCase().replace(/\s+/g, "-").slice(0, 200);
+function slugify(input, type) {
+  const parameters = input.split(",");
+  const slugyfiedTitle = parameters[0]
+    .toLowerCase()
+    .replace(/\s+/g, "-")
+    .slice(0, 200);
 
-  const query = 'count(*[_type=="article" && slug.current == $slug]{_id})';
-  const params = { slug: slug };
+  const query =
+    "count(*[_type=='article' && slug.current == $slug && _id !=$id ]{_id})";
+  const params = { slug: slugyfiedTitle, id: parameters[1] };
   return sanityClient.fetch(query, params).then((count) => {
-    return `${slug}-${count + 1}`;
+    if (count === 0) {
+      return slugyfiedTitle;
+    } else {
+      return `${slugyfiedTitle}-${count + 1}`;
+    }
   });
 }
 
@@ -49,9 +58,9 @@ export default createSchema({
           name: "slug",
           type: "slug",
           options: {
-            source: "title.de",
+            source: (doc) => `${doc.title.de},${doc._id}`,
             maxLength: 200, // will be ignored if slugify is set
-            slugify: slugifyy,
+            slugify: slugify,
           },
         },
         {
