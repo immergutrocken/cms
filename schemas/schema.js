@@ -1,11 +1,22 @@
 // First, we must import the schema creator
 import createSchema from "part:@sanity/base/schema-creator";
+import sanityClient from "part:@sanity/base/client";
 
 // Then import schema types from any plugins that might expose them
 import schemaTypes from "all:part:@sanity/base/schema-type";
 import { RiArticleLine } from "react-icons/ri";
 import localeString from "./localeString";
 import localeImage from "./localeImage";
+
+function slugifyy(input, type) {
+  const slug = input.toLowerCase().replace(/\s+/g, "-").slice(0, 200);
+
+  const query = 'count(*[_type=="article" && slug.current == $slug]{_id})';
+  const params = { slug: slug };
+  return sanityClient.fetch(query, params).then((count) => {
+    return `${slug}-${count + 1}`;
+  });
+}
 
 // Then we give our schema to the builder and provide the result to Sanity
 export default createSchema({
@@ -40,8 +51,7 @@ export default createSchema({
           options: {
             source: "title.de",
             maxLength: 200, // will be ignored if slugify is set
-            slugify: (input) =>
-              input.toLowerCase().replace(/\s+/g, "-").slice(0, 200),
+            slugify: slugifyy,
           },
         },
         {
