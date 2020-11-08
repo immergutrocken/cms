@@ -6,6 +6,7 @@ import schemaTypes from "all:part:@sanity/base/schema-type";
 import { RiArticleLine } from "react-icons/ri";
 import localeString from "./localeString";
 import localeImage from "./localeImage";
+import youtube from "./youtube";
 
 // Then we give our schema to the builder and provide the result to Sanity
 export default createSchema({
@@ -17,6 +18,7 @@ export default createSchema({
     /* Your types here! */
     localeString,
     localeImage,
+    youtube,
     {
       title: "Artikel",
       name: "article",
@@ -120,6 +122,7 @@ export default createSchema({
                 ],
               },
             },
+            { type: "youtube" },
           ],
         },
       ],
