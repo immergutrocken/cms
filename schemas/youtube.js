@@ -11,7 +11,7 @@ const Preview = ({ value }) => {
 export default {
   name: "youtube",
   type: "object",
-  title: "YouTube Embed",
+  title: "YouTube Video",
   fields: [
     {
       name: "url",
