@@ -4,8 +4,9 @@ import schemaTypes from "all:part:@sanity/base/schema-type";
 import igImage from "./fields/igImage";
 import youtube from "./components/youtube";
 import localeArticle from "./documents/localeArticle";
+import tag from "./documents/tag";
 
 export default createSchema({
   name: "default",
-  types: schemaTypes.concat([igImage, youtube, localeArticle]),
+  types: schemaTypes.concat([igImage, youtube, localeArticle, tag]),
 });

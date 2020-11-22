@@ -60,7 +60,7 @@ const fields = [
     title: "Tags",
     name: "tags",
     type: "array",
-    of: [{ type: "string" }],
+    of: [{ type: "reference", to: [{ type: "tag" }] }],
     options: {
       layout: "tags",
     },
