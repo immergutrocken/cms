@@ -17,7 +17,7 @@ function slugify(input) {
     .slice(0, 200);
 
   const query =
-    "count(*[_type == $type && slug.current == $slug && _id !=$id ]{_id})";
+    "count(*[_type == $type && languages.de.slug.current == $slug && _id !=$id ]{_id})";
   const params = { slug: slugyfiedTitle, id: input.id, type: type };
   return sanityClient.fetch(query, params).then((count) => {
     console.log(count);
@@ -40,7 +40,7 @@ const fields = [
     name: "slug",
     type: "slug",
     options: {
-      source: (doc) => ({ title: doc.content.de.title, id: doc._id }),
+      source: (doc) => ({ title: doc.languages.de.title, id: doc._id }),
       slugify: slugify,
     },
     validation: (Rule) => Rule.required(),
@@ -148,7 +148,7 @@ export default {
   title: "Artikel",
   fields: [
     {
-      name: "content",
+      name: "languages",
       type: "object",
       inputComponent: Tabs,
       fieldsets: supportedLanguages.map((lang) => ({
