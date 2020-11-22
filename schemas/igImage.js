@@ -11,9 +11,6 @@ export default {
       name: "caption",
       type: "string",
       description: "Bildunterschrift",
-      options: {
-        isHighlighted: true,
-      },
     },
     {
       title: "Alternativer Text",
@@ -21,17 +18,11 @@ export default {
       type: "string",
       description:
         "Text der angezeigt wird, wenn das Bild nicht geladen werden kann.",
-      options: {
-        isHighlighted: true,
-      },
     },
     {
       title: "Credits",
       name: "credits",
       type: "string",
-      options: {
-        isHighlighted: true,
-      },
     },
   ],
 };
