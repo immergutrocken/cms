@@ -1,7 +1,7 @@
 import Tabs from "sanity-plugin-tabs";
 import sanityClient from "part:@sanity/base/client";
 import { RiArticleLine } from "react-icons/ri";
-import linkCategory from "./fields/linkCategory";
+import linkCategory from "../fields/linkCategory";
 
 const type = "localeArticle";
 
