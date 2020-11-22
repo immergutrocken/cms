@@ -151,8 +151,8 @@ export default {
   ],
   preview: {
     select: {
-      title: "content.de.title",
-      media: "content.de.banner",
+      title: "languages.de.title",
+      media: "languages.de.banner",
     },
   },
 };
