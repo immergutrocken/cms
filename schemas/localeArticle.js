@@ -1,6 +1,7 @@
 import Tabs from "sanity-plugin-tabs";
 import sanityClient from "part:@sanity/base/client";
 import { RiArticleLine } from "react-icons/ri";
+import linkCategory from "./fields/linkCategory";
 
 const type = "localeArticle";
 
@@ -42,6 +43,7 @@ const fields = [
       source: (doc) => ({ title: doc.content.de.title, id: doc._id }),
       slugify: slugify,
     },
+    validation: (Rule) => Rule.required(),
     hideInOtherLang: true,
   },
   {
@@ -87,20 +89,7 @@ const fields = [
               type: "object",
               title: "External link",
               fields: [
-                {
-                  title: "Kategorie",
-                  name: "category",
-                  type: "string",
-                  options: {
-                    list: [
-                      { title: "Normal", value: "normal" },
-                      {
-                        title: "Call To Action",
-                        value: "call-to-action",
-                      },
-                    ],
-                  },
-                },
+                linkCategory,
                 {
                   name: "href",
                   type: "url",
@@ -109,7 +98,6 @@ const fields = [
                 {
                   title: "Open in new tab",
                   name: "blank",
-                  description: "Read https://css-tricks.com/use-target_blank/",
                   type: "boolean",
                 },
               ],
@@ -119,20 +107,7 @@ const fields = [
               type: "object",
               title: "Internal link",
               fields: [
-                {
-                  title: "Kategorie",
-                  name: "category",
-                  type: "string",
-                  options: {
-                    list: [
-                      { title: "Normal", value: "normal" },
-                      {
-                        title: "Call To Action",
-                        value: "call-to-action",
-                      },
-                    ],
-                  },
-                },
+                linkCategory,
                 {
                   name: "reference",
                   type: "reference",
@@ -152,6 +127,7 @@ const fields = [
 
 const buildFields = () => {
   const languagedFields = [];
+  const defaultLang = supportedLanguages.find((lang) => lang.isDefault);
   supportedLanguages.forEach((lang) => {
     const langObject = {
       type: "object",
