@@ -36,17 +36,6 @@ const fields = [
     title: "Titel",
   },
   {
-    title: "Slug",
-    name: "slug",
-    type: "slug",
-    options: {
-      source: (doc) => ({ title: doc.languages.de.title, id: doc._id }),
-      slugify: slugify,
-    },
-    validation: (Rule) => Rule.required(),
-    hideInOtherLang: true,
-  },
-  {
     type: "string",
     name: "subtitle",
     title: "Untertitel",
@@ -55,20 +44,6 @@ const fields = [
     type: "igImage",
     name: "banner",
     title: "Banner",
-  },
-  {
-    title: "Tags",
-    name: "tags",
-    type: "array",
-    of: [{ type: "string" }],
-    options: {
-      layout: "tags",
-    },
-  },
-  {
-    title: "Autor",
-    name: "author",
-    type: "string",
   },
   {
     title: "News",
@@ -147,6 +122,22 @@ export default {
   icon: RiArticleLine,
   title: "Artikel",
   fields: [
+    {
+      title: "Slug",
+      name: "slug",
+      type: "slug",
+      options: {
+        source: (doc) => ({ title: doc.languages.de.title, id: doc._id }),
+        slugify: slugify,
+      },
+      validation: (Rule) => Rule.required(),
+      hideInOtherLang: true,
+    },
+    {
+      title: "Autor",
+      name: "author",
+      type: "string",
+    },
     {
       name: "languages",
       type: "object",
