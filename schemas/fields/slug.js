@@ -16,14 +16,17 @@ export async function slugify(input) {
   let needNextTest = true;
   let counter = 1;
 
+  const id = input.id.replace("drafts.", "");
+
   // test for already used slug, if so, count up and check again
   do {
     const query =
-      "count(*[_type == 'localeArticle' && slug.current == $slug && _id !=$id ]{_id})";
+      "count(*[_type == 'localeArticle' && slug.current == $slug && _id != $id && _id != 'drafts.' + $id ]{_id})";
     const params = {
       slug: counter === 1 ? slugyfiedTitle : slugyfiedTitle + "-" + counter,
-      id: input.id,
+      id: id,
     };
+    console.log(params);
     const count = await sanityClient.fetch(query, params);
     console.log(count);
     if (count === 0) {
