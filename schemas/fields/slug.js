@@ -4,6 +4,14 @@ export async function slugify(input) {
   let slugyfiedTitle = input.title
     .toLowerCase()
     .replace(/\s+/g, "-")
+    .replace(/ä/g, "ae")
+    .replace(/ö/g, "oe")
+    .replace(/ü/g, "ue")
+    .replace(/ß/g, "ss")
+    .replace(/\./g, "")
+    .replace(/,/g, "")
+    .replace(/\(/g, "")
+    .replace(/\)/g, "")
     .slice(0, 200);
   let needNextTest = true;
   let counter = 1;
