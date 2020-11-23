@@ -1,33 +1,12 @@
 import Tabs from "sanity-plugin-tabs";
-import sanityClient from "part:@sanity/base/client";
 import { RiArticleLine } from "react-icons/ri";
 import linkCategory from "../fields/linkCategory";
-
-const type = "localeArticle";
+import { slug } from "../fields/slug";
 
 const supportedLanguages = [
   { id: "de", title: "Deutsch", isDefault: true },
   { id: "en", title: "Englisch" },
 ];
-
-function slugify(input) {
-  const slugyfiedTitle = input.title
-    .toLowerCase()
-    .replace(/\s+/g, "-")
-    .slice(0, 200);
-
-  const query =
-    "count(*[_type == $type && languages.de.slug.current == $slug && _id !=$id ]{_id})";
-  const params = { slug: slugyfiedTitle, id: input.id, type: type };
-  return sanityClient.fetch(query, params).then((count) => {
-    console.log(count);
-    if (count === 0) {
-      return slugyfiedTitle;
-    } else {
-      return `${slugyfiedTitle}-${count + 1}`;
-    }
-  });
-}
 
 const fields = [
   {
@@ -118,26 +97,10 @@ const buildFields = () => {
 
 export default {
   type: "document",
-  name: type,
+  name: "localeArticle",
   icon: RiArticleLine,
   title: "Artikel",
   fields: [
-    {
-      title: "Slug",
-      name: "slug",
-      type: "slug",
-      options: {
-        source: (doc) => ({ title: doc.languages.de.title, id: doc._id }),
-        slugify: slugify,
-      },
-      validation: (Rule) => Rule.required(),
-      hideInOtherLang: true,
-    },
-    {
-      title: "Autor",
-      name: "author",
-      type: "string",
-    },
     {
       name: "languages",
       type: "object",
@@ -147,6 +110,12 @@ export default {
         title: lang.title,
       })),
       fields: buildFields(),
+    },
+    slug,
+    {
+      title: "Autor",
+      name: "author",
+      type: "string",
     },
   ],
   preview: {

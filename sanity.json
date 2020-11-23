@@ -53,6 +53,10 @@
     {
       "implements": "part:@sanity/base/brand-logo",
       "path": "./components/immergutLogo.js"
+    },
+    {
+      "implements": "part:@sanity/base/document-actions/resolver",
+      "path": "./actions/resolveDocumentActions.js"
     }
   ]
 }
