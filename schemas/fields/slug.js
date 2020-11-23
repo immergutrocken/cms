@@ -1,21 +1,31 @@
 import sanityClient from "part:@sanity/base/client";
 
 export async function slugify(input) {
-  const slugyfiedTitle = input.title
+  let slugyfiedTitle = input.title
     .toLowerCase()
     .replace(/\s+/g, "-")
     .slice(0, 200);
+  let needNextTest = true;
+  let counter = 1;
 
-  const query =
-    "count(*[_type == 'localeArticle' && slug.current == $slug && _id !=$id ]{_id})";
-  const params = { slug: slugyfiedTitle, id: input.id };
-  return await sanityClient.fetch(query, params).then((count) => {
+  // test for already used slug, if so, count up and check again
+  do {
+    const query =
+      "count(*[_type == 'localeArticle' && slug.current == $slug && _id !=$id ]{_id})";
+    const params = {
+      slug: counter === 1 ? slugyfiedTitle : slugyfiedTitle + "-" + counter,
+      id: input.id,
+    };
+    const count = await sanityClient.fetch(query, params);
+    console.log(count);
     if (count === 0) {
-      return slugyfiedTitle;
+      needNextTest = false;
     } else {
-      return `${slugyfiedTitle}-${count + 1}`;
+      counter++;
     }
-  });
+  } while (needNextTest);
+  if (counter === 1) return slugyfiedTitle;
+  else return slugyfiedTitle + "-" + counter;
 }
 
 export const slug = {
