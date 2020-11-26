@@ -1,5 +1,5 @@
 export default {
-  name: "igImage",
+  name: "image",
   type: "image",
   title: "Bild",
   options: {

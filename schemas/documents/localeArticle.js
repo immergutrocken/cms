@@ -2,6 +2,7 @@ import Tabs from "sanity-plugin-tabs";
 import { RiArticleLine } from "react-icons/ri";
 import linkCategory from "../fields/linkCategory";
 import { slug } from "../fields/slug";
+import image from "../fields/image";
 
 const supportedLanguages = [
   { id: "de", title: "Deutsch", isDefault: true },
@@ -20,9 +21,9 @@ const fields = [
     title: "Untertitel",
   },
   {
-    type: "igImage",
-    name: "banner",
+    ...image,
     title: "Banner",
+    name: "banner",
   },
   {
     title: "News",
@@ -74,19 +75,18 @@ const fields = [
         },
       },
       { type: "youtube" },
-      { type: "igImage" },
+      image,
     ],
   },
 ];
 
 const buildFields = () => {
   const languagedFields = [];
-  const defaultLang = supportedLanguages.find((lang) => lang.isDefault);
   supportedLanguages.forEach((lang) => {
     const langObject = {
       type: "object",
       name: lang.id,
-      title: "Test",
+      title: lang.title,
       fieldset: lang.id + "-tab",
       fields: fields,
     };
