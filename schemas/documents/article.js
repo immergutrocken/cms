@@ -3,6 +3,7 @@ import { RiArticleLine } from "react-icons/ri";
 import linkCategory from "../fields/linkCategory";
 import { slug } from "../fields/slug";
 import image from "../fields/image";
+import youtube from "../components/youtube";
 
 const supportedLanguages = [
   { id: "de", title: "Deutsch", isDefault: true },
@@ -74,7 +75,7 @@ const fields = [
           ],
         },
       },
-      { type: "youtube" },
+      youtube,
       image,
     ],
   },
@@ -97,7 +98,7 @@ const buildFields = () => {
 
 export default {
   type: "document",
-  name: "localeArticle",
+  name: "article",
   icon: RiArticleLine,
   title: "Artikel",
   fields: [
