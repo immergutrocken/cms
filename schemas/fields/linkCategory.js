@@ -12,5 +12,4 @@ export default {
     ],
     layout: "radio",
   },
-  validation: (Rule) => Rule.required(),
 };

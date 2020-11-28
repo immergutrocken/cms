@@ -4,6 +4,7 @@ import linkCategory from "../fields/linkCategory";
 import { slug } from "../fields/slug";
 import image from "../fields/image";
 import youtube from "../components/youtube";
+import internalLink from "../fields/internalLink";
 
 const supportedLanguages = [
   { id: "de", title: "Deutsch", isDefault: true },
@@ -58,20 +59,7 @@ const fields = [
                 },
               ],
             },
-            {
-              name: "internalLink",
-              type: "object",
-              title: "Internal link",
-              fields: [
-                linkCategory,
-                {
-                  name: "reference",
-                  type: "reference",
-                  title: "Reference",
-                  to: [{ type: "article" }],
-                },
-              ],
-            },
+            internalLink(["article"]),
           ],
         },
       },
