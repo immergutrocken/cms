@@ -3,8 +3,7 @@ import { RiArticleLine } from "react-icons/ri";
 import { slug } from "../fields/slug";
 import image from "../fields/image";
 import youtube from "../components/youtube";
-import internalLink from "../fields/internalLink";
-import externalLink from "../fields/externalLink";
+import link from "../fields/link";
 
 const supportedLanguages = [
   { id: "de", title: "Deutsch", isDefault: true },
@@ -40,11 +39,15 @@ const fields = [
       {
         type: "block",
         marks: {
-          annotations: [externalLink, internalLink(["article"])],
+          annotations: [link(["article"])],
         },
       },
       youtube,
-      image,
+      {
+        ...image,
+        title: "Bild",
+        fields: [...image.fields, link(["article"])],
+      },
     ],
   },
 ];
