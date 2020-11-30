@@ -5,7 +5,13 @@ import linkCategory from "../fields/linkCategory";
 import { slug } from "../fields/slug";
 import image from "../fields/image";
 import youtube from "../components/youtube";
-import { FaHighlighter } from "react-icons/fa";
+import {
+  FaHighlighter,
+  FaAlignLeft,
+  FaAlignRight,
+  FaAlignCenter,
+  FaAlignJustify,
+} from "react-icons/fa";
 
 const supportedLanguages = [
   { id: "de", title: "Deutsch", isDefault: true },
@@ -14,6 +20,17 @@ const supportedLanguages = [
 
 const highlightRender = (props) => (
   <span style={{ backgroundColor: "yellow" }}>{props.children}</span>
+);
+
+const alignRender = (align) => (props) => (
+  <div
+    class="test"
+    style={{
+      textAlign: align,
+    }}
+  >
+    {props.children}
+  </div>
 );
 
 const fields = [
@@ -57,6 +74,38 @@ const fields = [
               blockEditor: {
                 icon: FaHighlighter,
                 render: highlightRender,
+              },
+            },
+            {
+              title: "Align left",
+              value: "align-left",
+              blockEditor: {
+                icon: FaAlignLeft,
+                render: alignRender("left"),
+              },
+            },
+            {
+              title: "Align center",
+              value: "align-center",
+              blockEditor: {
+                icon: FaAlignCenter,
+                render: alignRender("center"),
+              },
+            },
+            {
+              title: "Align right",
+              value: "align-right",
+              blockEditor: {
+                icon: FaAlignRight,
+                render: alignRender("right"),
+              },
+            },
+            {
+              title: "Align justify",
+              value: "align-justify",
+              blockEditor: {
+                icon: FaAlignJustify,
+                render: alignRender("justify"),
               },
             },
           ],
