@@ -33,6 +33,10 @@ const alignRender = (align) => (props) => (
   </div>
 );
 
+const colorRender = (color) => (props) => (
+  <span style={{ color: color }}>{props.children}</span>
+);
+
 const fields = [
   {
     type: "string",
@@ -61,6 +65,12 @@ const fields = [
     of: [
       {
         type: "block",
+        styles: [
+          { title: "Normal", value: "normal" },
+          { title: "H1", value: "h1" },
+          { title: "H2", value: "h2" },
+          { title: "Quote", value: "blockquote" },
+        ],
         marks: {
           decorators: [
             { title: "Strong", value: "strong" },
@@ -106,6 +116,30 @@ const fields = [
               blockEditor: {
                 icon: FaAlignJustify,
                 render: alignRender("justify"),
+              },
+            },
+            {
+              title: "Primary Color",
+              value: "color-primary",
+              blockEditor: {
+                icon: () => "CP",
+                render: colorRender("red"),
+              },
+            },
+            {
+              title: "Secondary Color",
+              value: "color-secondary",
+              blockEditor: {
+                icon: () => "CS",
+                render: colorRender("green"),
+              },
+            },
+            {
+              title: "Tertiary Color",
+              value: "color-tertiary",
+              blockEditor: {
+                icon: () => "CT",
+                render: colorRender("blue"),
               },
             },
           ],
