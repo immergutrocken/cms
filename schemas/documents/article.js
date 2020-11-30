@@ -1,14 +1,20 @@
+import React from "react";
 import Tabs from "sanity-plugin-tabs";
 import { RiArticleLine } from "react-icons/ri";
 import linkCategory from "../fields/linkCategory";
 import { slug } from "../fields/slug";
 import image from "../fields/image";
 import youtube from "../components/youtube";
+import { FaHighlighter } from "react-icons/fa";
 
 const supportedLanguages = [
   { id: "de", title: "Deutsch", isDefault: true },
   { id: "en", title: "Englisch" },
 ];
+
+const highlightRender = (props) => (
+  <span style={{ backgroundColor: "yellow" }}>{props.children}</span>
+);
 
 const fields = [
   {
@@ -39,6 +45,21 @@ const fields = [
       {
         type: "block",
         marks: {
+          decorators: [
+            { title: "Strong", value: "strong" },
+            { title: "Emphasis", value: "em" },
+            { title: "Code", value: "code" },
+            { title: "Underline", value: "underline" },
+            { title: "Strike", value: "strike-through" },
+            {
+              title: "Highlight",
+              value: "highlight",
+              blockEditor: {
+                icon: FaHighlighter,
+                render: highlightRender,
+              },
+            },
+          ],
           annotations: [
             {
               name: "link",
