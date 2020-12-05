@@ -4,7 +4,6 @@ import sanityClient from "part:@sanity/base/client";
 import imageUrlBuilder from "@sanity/image-url";
 import { IoMdImages } from "react-icons/io";
 
-console.log(sanityClient);
 const builder = imageUrlBuilder(sanityClient);
 
 function urlFor(source) {
