@@ -13,12 +13,24 @@ function urlFor(source) {
 const Preview = ({ value }) => {
   const { images } = value;
   return (
-    <div style={{ display: "flex", flexDirection: "row", overflowX: "auto" }}>
+    <div
+      style={{
+        display: "flex",
+        flexDirection: "row",
+        overflowX: "auto",
+        alignItems: "center",
+        padding: "10px",
+      }}
+    >
       {images &&
         images.map((image) => {
-          const url = urlFor(image).width(200).url();
+          const url = urlFor(image).url();
           return (
-            <img src={url} style={{ width: "25%", margin: "10px" }} key={url} />
+            <img
+              src={url}
+              style={{ maxWidth: "25%", margin: "10px", maxHeight: "100px" }}
+              key={url}
+            />
           );
         })}
     </div>
