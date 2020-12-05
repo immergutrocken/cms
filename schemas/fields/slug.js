@@ -21,14 +21,13 @@ export async function slugify(input) {
   // test for already used slug, if so, count up and check again
   do {
     const query =
-      "count(*[_type == 'localeArticle' && slug.current == $slug && _id != $id && _id != 'drafts.' + $id ]{_id})";
+      "count(*[_type == $type && slug.current == $slug && _id != $id && _id != 'drafts.' + $id ]{_id})";
     const params = {
       slug: counter === 1 ? slugyfiedTitle : slugyfiedTitle + "-" + counter,
       id: id,
+      type: input.type,
     };
-    console.log(params);
     const count = await sanityClient.fetch(query, params);
-    console.log(count);
     if (count === 0) {
       needNextTest = false;
     } else {
@@ -44,7 +43,11 @@ export const slug = {
   name: "slug",
   type: "slug",
   options: {
-    source: (doc) => ({ title: doc.languages.de.title, id: doc._id }),
+    source: (doc) => ({
+      title: doc.languages.de.title,
+      id: doc._id,
+      type: doc._type,
+    }),
     slugify: slugify,
   },
 };
