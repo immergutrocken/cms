@@ -5,7 +5,7 @@
   },
   "api": {
     "projectId": "05hvmwlk",
-    "dataset": "qa"
+    "dataset": "development"
   },
   "plugins": [
     "@sanity/base",
@@ -19,7 +19,34 @@
   ],
   "env": {
     "development": {
-      "plugins": ["@sanity/vision"]
+      "plugins": ["@sanity/vision"],
+      "__experimental_spaces": [
+        {
+          "name": "development",
+          "title": "Development",
+          "default": true,
+          "api": {
+            "projectId": "05hvmwlk",
+            "dataset": "development"
+          }
+        },
+        {
+          "name": "staging",
+          "title": "Staging",
+          "api": {
+            "projectId": "05hvmwlk",
+            "dataset": "staging"
+          }
+        },
+        {
+          "name": "production",
+          "title": "Production",
+          "api": {
+            "projectId": "05hvmwlk",
+            "dataset": "production"
+          }
+        }
+      ]
     }
   },
   "parts": [
