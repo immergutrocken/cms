@@ -19,7 +19,7 @@
   ],
   "env": {
     "development": {
-      "plugins": ["@sanity/vision"],
+      "plugins": ["@sanity/vision", "content-model-graph"],
       "__experimental_spaces": [
         {
           "name": "development",
