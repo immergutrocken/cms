@@ -4,6 +4,7 @@ import linkCategory from "../fields/linkCategory";
 import { slug } from "../fields/slug";
 import image from "../fields/image";
 import youtube from "../components/youtube";
+import imageGallery from "../components/imageGallery";
 
 const supportedLanguages = [
   { id: "de", title: "Deutsch", isDefault: true },
@@ -77,6 +78,7 @@ const fields = [
       },
       youtube,
       image,
+      imageGallery,
     ],
   },
 ];
