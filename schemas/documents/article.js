@@ -1,10 +1,10 @@
 import Tabs from "sanity-plugin-tabs";
 import { RiArticleLine } from "react-icons/ri";
-import linkCategory from "../fields/linkCategory";
 import { slug } from "../fields/slug";
 import image from "../fields/image";
 import youtube from "../components/youtube";
 import imageGallery from "../components/imageGallery";
+import link from "../fields/link";
 
 const supportedLanguages = [
   { id: "de", title: "Deutsch", isDefault: true },
@@ -40,44 +40,15 @@ const fields = [
       {
         type: "block",
         marks: {
-          annotations: [
-            {
-              name: "link",
-              type: "object",
-              title: "External link",
-              fields: [
-                linkCategory,
-                {
-                  name: "href",
-                  type: "url",
-                  title: "URL",
-                },
-                {
-                  title: "Open in new tab",
-                  name: "blank",
-                  type: "boolean",
-                },
-              ],
-            },
-            {
-              name: "internalLink",
-              type: "object",
-              title: "Internal link",
-              fields: [
-                linkCategory,
-                {
-                  name: "reference",
-                  type: "reference",
-                  title: "Reference",
-                  to: [{ type: "article" }],
-                },
-              ],
-            },
-          ],
+          annotations: [link(["article"])],
         },
       },
       youtube,
-      image,
+      {
+        ...image,
+        title: "Bild",
+        fields: [...image.fields, link(["article"])],
+      },
       imageGallery,
     ],
   },
