@@ -3,6 +3,7 @@ import { RiArticleLine } from "react-icons/ri";
 import { slug } from "../fields/slug";
 import image from "../fields/image";
 import youtube from "../components/youtube";
+import imageGallery from "../components/imageGallery";
 import link from "../fields/link";
 
 const supportedLanguages = [
@@ -48,6 +49,7 @@ const fields = [
         title: "Bild",
         fields: [...image.fields, link(["article"])],
       },
+      imageGallery,
     ],
   },
 ];
