@@ -30,7 +30,7 @@ jobs:
         run: npm install @sanity/cli
         
       - name: sanity install
-        run: sanity install
+        run: npx sanity install
         
       - name: sanity check
-        run: npm run test
+        run: npx sanity check
