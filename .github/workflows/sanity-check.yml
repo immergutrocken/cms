@@ -29,5 +29,8 @@ jobs:
       - name: install sanity cli
         run: npm install @sanity/cli
         
+      - name: sanity install
+        run: sanity install
+        
       - name: sanity check
         run: npm run test
