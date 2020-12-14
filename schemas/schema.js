@@ -1,10 +1,10 @@
 import createSchema from "part:@sanity/base/schema-creator";
 
 import schemaTypes from "all:part:@sanity/base/schema-type";
-import youtube from "./components/youtube";
 import article from "./documents/article";
+import sponsor from "./documents/sponsor";
 
 export default createSchema({
   name: "default",
-  types: schemaTypes.concat([article]),
+  types: schemaTypes.concat([article, sponsor]),
 });
