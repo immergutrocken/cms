@@ -4,7 +4,7 @@ import image from "../fields/image";
 
 export default {
   type: "document",
-  name: "sponsor",
+  name: "partner",
   title: "Partner",
   icon: RiGiftLine,
   fields: [
@@ -12,6 +12,19 @@ export default {
       type: "string",
       name: "title",
       title: "Titel",
+    },
+    {
+      type: "string",
+      name: "category",
+      title: "Kategorie",
+      options: {
+        list: [
+          { title: "Sponsor", value: "sponsor" },
+          { title: "Medienpartner", value: "media-partner" },
+          { title: "Außerdem", value: "additional" },
+        ],
+        layout: "dropdown",
+      },
     },
     {
       ...image,
