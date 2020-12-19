@@ -145,6 +145,7 @@ const fields = [
           ],
           annotations: [link(["article"])],
         },
+        of: [{ ...image, title: "Inline Image" }],
       },
       youtube,
       {
