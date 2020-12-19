@@ -1,5 +1,3 @@
-import localeString from "./localeString";
-
 import { HiOutlineExternalLink } from "react-icons/hi";
 
 export default {
@@ -8,7 +6,6 @@ export default {
   type: "object",
   icon: HiOutlineExternalLink,
   fields: [
-    localeString("Titel", "title"),
     {
       title: "URL",
       name: "url",
@@ -20,9 +17,4 @@ export default {
       type: "boolean",
     },
   ],
-  preview: {
-    select: {
-      title: "title.de",
-    },
-  },
 };

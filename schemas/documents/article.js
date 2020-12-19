@@ -5,6 +5,9 @@ import image from "../fields/image";
 import youtube from "../components/youtube";
 import imageGallery from "../components/imageGallery";
 import link from "../fields/link";
+import externalLink from "../fields/externalLink";
+import { withCTA } from "../fields/fieldExtender";
+import internalLink from "../fields/internalLink";
 
 const supportedLanguages = [
   { id: "de", title: "Deutsch", isDefault: true },
@@ -35,7 +38,10 @@ const fields = [
       {
         type: "block",
         marks: {
-          annotations: [link(["article"])],
+          annotations: [
+            withCTA(externalLink),
+            withCTA(internalLink("article")),
+          ],
         },
       },
       youtube,

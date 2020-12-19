@@ -1,4 +1,3 @@
-import localeString from "./localeString";
 import { HiOutlineLink } from "react-icons/hi";
 
 export default (...references) => ({
@@ -7,7 +6,6 @@ export default (...references) => ({
   name: "internalLink",
   icon: HiOutlineLink,
   fields: [
-    localeString("Titel", "title"),
     {
       name: "reference",
       type: "reference",
@@ -15,9 +13,4 @@ export default (...references) => ({
       to: references.map((reference) => ({ type: reference })),
     },
   ],
-  preview: {
-    select: {
-      title: "title.de",
-    },
-  },
 });
