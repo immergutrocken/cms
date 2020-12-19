@@ -11,7 +11,11 @@ import {
   FaAlignCenter,
   FaAlignJustify,
 } from "react-icons/fa";
+import imageGallery from "../components/imageGallery";
 import link from "../fields/link";
+import externalLink from "../fields/externalLink";
+import { withCTA } from "../fields/fieldExtender";
+import internalLink from "../fields/internalLink";
 
 const supportedLanguages = [
   { id: "de", title: "Deutsch", isDefault: true },
@@ -52,11 +56,6 @@ const fields = [
     ...image,
     title: "Banner",
     name: "banner",
-  },
-  {
-    title: "News",
-    name: "isNews",
-    type: "boolean",
   },
   {
     title: "Inhalt",
@@ -143,7 +142,10 @@ const fields = [
               },
             },
           ],
-          annotations: [link(["article"])],
+          annotations: [
+            withCTA(externalLink),
+            withCTA(internalLink("article")),
+          ],
         },
         of: [{ ...image, title: "Inline Image" }],
       },
@@ -153,6 +155,7 @@ const fields = [
         title: "Bild",
         fields: [...image.fields, link(["article"])],
       },
+      imageGallery,
     ],
   },
 ];
@@ -193,6 +196,11 @@ export default {
       title: "Autor",
       name: "author",
       type: "string",
+    },
+    {
+      title: "News",
+      name: "isNews",
+      type: "boolean",
     },
   ],
   preview: {

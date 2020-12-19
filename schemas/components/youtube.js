@@ -6,7 +6,7 @@ import { FaYoutube } from "react-icons/fa";
 const Preview = ({ value }) => {
   const { url } = value;
   const id = getYouTubeId(url);
-  return <YouTube videoId={id} />;
+  return <YouTube videoId={id} opts={{ width: "100%" }} />;
 };
 
 export default {
