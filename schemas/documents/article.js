@@ -28,11 +28,6 @@ const fields = [
     name: "banner",
   },
   {
-    title: "News",
-    name: "isNews",
-    type: "boolean",
-  },
-  {
     title: "Inhalt",
     name: "content",
     type: "array",
@@ -90,6 +85,11 @@ export default {
       title: "Autor",
       name: "author",
       type: "string",
+    },
+    {
+      title: "News",
+      name: "isNews",
+      type: "boolean",
     },
   ],
   preview: {

@@ -15,20 +15,23 @@ export default function igPublishAction(props) {
     label: isPublishing ? "Publishing..." : "Publish",
     onHandle: async () => {
       setIsPublishing(true);
-      const slugifiedTitle = await slugify({
-        title: props.draft.languages.de.title,
-        id: props.id,
-      });
-      patch.execute([
-        {
-          set: {
-            slug: {
-              _type: "slug",
-              current: slugifiedTitle,
+      if (props.type === "article") {
+        const slugifiedTitle = await slugify({
+          title: props.draft.languages.de.title,
+          id: props.id,
+          type: props.type,
+        });
+        patch.execute([
+          {
+            set: {
+              slug: {
+                _type: "slug",
+                current: slugifiedTitle,
+              },
             },
           },
-        },
-      ]);
+        ]);
+      }
       publish.execute();
       props.onComplete();
     },

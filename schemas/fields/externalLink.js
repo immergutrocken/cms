@@ -8,6 +8,7 @@ export default {
   type: "object",
   icon: HiOutlineExternalLink,
   fields: [
+    localeString("Titel", "title"),
     {
       title: "URL",
       name: "url",
