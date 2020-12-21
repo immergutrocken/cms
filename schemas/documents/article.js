@@ -8,6 +8,7 @@ import link from "../fields/link";
 import externalLink from "../fields/externalLink";
 import { withCTA } from "../fields/fieldExtender";
 import internalLink from "../fields/internalLink";
+import contactFomular from "../fields/contactFomular";
 
 const supportedLanguages = [
   { id: "de", title: "Deutsch", isDefault: true },
@@ -51,6 +52,7 @@ const fields = [
         fields: [...image.fields, link(["article"])],
       },
       imageGallery,
+      contactFomular,
     ],
   },
 ];
