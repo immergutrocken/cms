@@ -8,11 +8,7 @@ import link from "../fields/link";
 import externalLink from "../fields/externalLink";
 import { withCTA } from "../fields/fieldExtender";
 import internalLink from "../fields/internalLink";
-
-const supportedLanguages = [
-  { id: "de", title: "Deutsch", isDefault: true },
-  { id: "en", title: "Englisch" },
-];
+import supportedLanguages from "../../config/supportedLanguages";
 
 const fields = [
   {
