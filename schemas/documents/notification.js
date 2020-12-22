@@ -1,6 +1,7 @@
 import { RiNotification2Line } from "react-icons/ri";
 import supportedLanguages from "../../config/supportedLanguages";
 import Tabs from "sanity-plugin-tabs";
+import blockContent from "../fields/blockContent";
 
 const fields = [
   {
@@ -8,6 +9,7 @@ const fields = [
     name: "title",
     title: "Titel",
   },
+  blockContent,
 ];
 
 const buildFields = () => {
