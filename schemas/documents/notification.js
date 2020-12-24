@@ -1,10 +1,7 @@
-import Tabs from "sanity-plugin-tabs";
-import { RiArticleLine } from "react-icons/ri";
-import { slug } from "../fields/slug";
-import image from "../fields/image";
+import { RiNotification2Line } from "react-icons/ri";
 import supportedLanguages from "../../config/supportedLanguages";
+import Tabs from "sanity-plugin-tabs";
 import blockContent from "../fields/blockContent";
-import contactFormular from "../fields/contactFomular";
 
 const fields = [
   {
@@ -12,17 +9,7 @@ const fields = [
     name: "title",
     title: "Titel",
   },
-  {
-    type: "string",
-    name: "subtitle",
-    title: "Untertitel",
-  },
-  {
-    ...image,
-    title: "Banner",
-    name: "banner",
-  },
-  { ...blockContent, of: [...blockContent.of, contactFormular] },
+  blockContent,
 ];
 
 const buildFields = () => {
@@ -42,9 +29,9 @@ const buildFields = () => {
 
 export default {
   type: "document",
-  name: "article",
-  icon: RiArticleLine,
-  title: "Artikel",
+  name: "notification",
+  title: "Benachrichtigungen",
+  icon: RiNotification2Line,
   fields: [
     {
       name: "languages",
@@ -56,22 +43,32 @@ export default {
       })),
       fields: buildFields(),
     },
-    slug,
     {
-      title: "Autor",
-      name: "author",
-      type: "string",
+      type: "date",
+      name: "startDate",
+      title: "Startdatum",
     },
     {
-      title: "News",
-      name: "isNews",
-      type: "boolean",
+      type: "date",
+      name: "endDate",
+      title: "Enddatum",
+    },
+    {
+      type: "string",
+      name: "displayCategory",
+      title: "Darstellungsart",
+      options: {
+        layout: "dropdown",
+        list: [
+          { title: "Footer", value: "footer" },
+          { title: "Pop-up", value: "pop-up" },
+        ],
+      },
     },
   ],
   preview: {
     select: {
       title: "languages.de.title",
-      media: "languages.de.banner",
     },
   },
 };
