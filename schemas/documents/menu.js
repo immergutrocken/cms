@@ -27,7 +27,7 @@ export default {
       title: "Menü Einträge",
       of: [
         withTitle(externalLink),
-        withTitle(internalLink("article")),
+        withTitle(internalLink("article", "artist")),
         {
           type: "reference",
           name: "submenu",
