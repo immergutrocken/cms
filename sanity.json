@@ -16,7 +16,8 @@
     "tabs",
     "media",
     "@sanity/dashboard",
-    "media-library"
+    "media-library",
+    "asset-source-giphy"
   ],
   "env": {
     "development": {
