@@ -4,7 +4,7 @@ import { slug } from "../fields/slug";
 import image from "../fields/image";
 import supportedLanguages from "../../config/supportedLanguages";
 import blockContent from "../fields/blockContent";
-import contactFormular from "../fields/contactFomular";
+import contactForm from "../fields/contactForm";
 
 const fields = [
   {
@@ -22,7 +22,7 @@ const fields = [
     title: "Banner",
     name: "banner",
   },
-  { ...blockContent, of: [...blockContent.of, contactFormular] },
+  { ...blockContent, of: [...blockContent.of, contactForm] },
 ];
 
 const buildFields = () => {

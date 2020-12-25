@@ -2,7 +2,7 @@ import { RiContactsFill } from "react-icons/ri";
 
 export default {
   type: "object",
-  name: "contactFormular",
+  name: "contactForm",
   title: "Kontakt Formular",
   icon: RiContactsFill,
   fields: [
