@@ -7703,6 +7703,12 @@ sanity-plugin-content-model-graph@^1.1.1:
     styled-components "5.1.0"
     viz.js "2.1.2"
 
+sanity-plugin-media-library@^1.0.2:
+  version "1.0.2"
+  resolved "https://registry.npmjs.org/sanity-plugin-media-library/-/sanity-plugin-media-library-1.0.2.tgz#1acdbc6333e0a799f15974257d8cb239e624f643"
+  dependencies:
+    styled-components "^5.2.1"
+
 sanity-plugin-media@^0.4.0:
   version "0.4.0"
   resolved "https://registry.npmjs.org/sanity-plugin-media/-/sanity-plugin-media-0.4.0.tgz#8193e405fac36f016fde19092cabb2c5a9b33b70"

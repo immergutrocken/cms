@@ -15,11 +15,15 @@
     "@sanity/desk-tool",
     "tabs",
     "media",
-    "@sanity/dashboard"
+    "@sanity/dashboard",
+    "media-library"
   ],
   "env": {
     "development": {
-      "plugins": ["@sanity/vision", "content-model-graph"],
+      "plugins": [
+        "@sanity/vision",
+        "content-model-graph"
+      ],
       "__experimental_spaces": [
         {
           "name": "development",

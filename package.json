@@ -31,6 +31,7 @@
     "react-youtube": "^7.13.0",
     "sanity-plugin-content-model-graph": "^1.1.1",
     "sanity-plugin-media": "^0.4.0",
+    "sanity-plugin-media-library": "^1.0.2",
     "sanity-plugin-tabs": "^2.0.1"
   },
   "devDependencies": {
