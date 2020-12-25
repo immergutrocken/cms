@@ -1,9 +1,19 @@
-import { RiArticleLine, RiMusic2Line } from "react-icons/ri";
+import { RiMusic2Line } from "react-icons/ri";
 import { slug } from "../fields/slug";
 import localizedTabs from "./localizedTabs";
 import image from "../fields/image";
 import blockContent from "../fields/blockContent";
 import externalLink from "../fields/externalLink";
+import {
+  FaFacebook,
+  FaGlobe,
+  FaInstagram,
+  FaSpotify,
+  FaTwitter,
+  FaVimeo,
+  FaYoutube,
+} from "react-icons/fa";
+import { SiTiktok } from "react-icons/si";
 
 const fields = [
   {
@@ -65,9 +75,14 @@ export default {
               title: "Soziales Medium",
               options: {
                 list: [
-                  { title: "Youtube", value: "youtube" },
-                  { title: "Facebook", value: "facebook" },
-                  { title: "Twitter", value: "twitter" },
+                  { title: "Website", value: "Website" },
+                  { title: "YouTube", value: "YouTube" },
+                  { title: "Facebook", value: "Facebook" },
+                  { title: "Twitter", value: "Twitter" },
+                  { title: "Instagram", value: "Instagram" },
+                  { title: "Vimeo", value: "Vimeo" },
+                  { title: "TikTok", value: "TikTok" },
+                  { title: "Spotify", value: "Spotify" },
                 ],
               },
             },
@@ -76,6 +91,42 @@ export default {
           preview: {
             select: {
               title: "medium",
+            },
+            prepare(selection) {
+              const { title } = selection;
+              let media;
+              switch (title) {
+                case "Website":
+                  media = FaGlobe;
+                  break;
+                case "Youtube":
+                  media = FaYoutube;
+                  break;
+                case "Facebook":
+                  media = FaFacebook;
+                  break;
+                case "Twitter":
+                  media = FaTwitter;
+                  break;
+                case "Instagram":
+                  media = FaInstagram;
+                  break;
+                case "Vimeo":
+                  media = FaVimeo;
+                  break;
+                case "TikTok":
+                  media = SiTiktok;
+                  break;
+                case "Spotify":
+                  media = FaSpotify;
+                  break;
+                default:
+                  break;
+              }
+              return {
+                title: title,
+                media: media,
+              };
             },
           },
         },
