@@ -1047,7 +1047,6 @@
 "@sanity/cli@^2.0.9":
   version "2.1.0"
   resolved "https://registry.yarnpkg.com/@sanity/cli/-/cli-2.1.0.tgz#a14d0fbd791f8f465d43f02cc30730e80c7dad55"
-  integrity sha512-ii8xhHcXmVGb5hANxASAStZ7C1WeAIA0MW70FSdjfpvhpesAGcZgq+n18TCxbKHThfhqBWvCK5gWHZba8Shzbw==
 
 "@sanity/client@2.0.1":
   version "2.0.1"
@@ -8249,7 +8248,7 @@ styled-components@5.2.0:
     shallowequal "^1.1.0"
     supports-color "^5.5.0"
 
-styled-components@^5.0.0:
+styled-components@^5.0.0, styled-components@^5.2.1:
   version "5.2.1"
   resolved "https://registry.npmjs.org/styled-components/-/styled-components-5.2.1.tgz#6ed7fad2dc233825f64c719ffbdedd84ad79101a"
   dependencies:
