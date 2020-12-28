@@ -14,6 +14,7 @@ import {
   FaYoutube,
 } from "react-icons/fa";
 import { SiTiktok } from "react-icons/si";
+import { twoColumns, threeColumns } from "../fields/columns";
 
 const fields = [
   {
@@ -31,7 +32,7 @@ const fields = [
     title: "Banner",
     name: "banner",
   },
-  blockContent,
+  { ...blockContent, of: [...blockContent.of, twoColumns, threeColumns] },
 ];
 
 export default {

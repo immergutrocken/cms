@@ -5,6 +5,7 @@ import blockContent from "../fields/blockContent";
 import contactForm from "../fields/contactForm";
 import expander from "../fields/expander";
 import localizedTabs from "./localizedTabs";
+import { threeColumns, twoColumns } from "../fields/columns";
 
 const fields = [
   {
@@ -22,7 +23,10 @@ const fields = [
     title: "Banner",
     name: "banner",
   },
-  { ...blockContent, of: [...blockContent.of, contactForm, expander] },
+  {
+    ...blockContent,
+    of: [...blockContent.of, contactForm, expander, twoColumns, threeColumns],
+  },
 ];
 
 export default {
