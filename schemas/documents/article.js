@@ -3,6 +3,7 @@ import { slug } from "../fields/slug";
 import image from "../fields/image";
 import blockContent from "../fields/blockContent";
 import contactForm from "../fields/contactForm";
+import expander from "../fields/expander";
 import localizedTabs from "./localizedTabs";
 
 const fields = [
@@ -21,7 +22,7 @@ const fields = [
     title: "Banner",
     name: "banner",
   },
-  { ...blockContent, of: [...blockContent.of, contactForm] },
+  { ...blockContent, of: [...blockContent.of, contactForm, expander] },
 ];
 
 export default {
