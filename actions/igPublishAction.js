@@ -15,7 +15,7 @@ export default function igPublishAction(props) {
     label: isPublishing ? "Publishing..." : "Publish",
     onHandle: async () => {
       setIsPublishing(true);
-      if (props.type === "article") {
+      if (props.type === "article" || props.type === "artist") {
         const slugifiedTitle = await slugify({
           title: props.draft.languages.de.title,
           id: props.id,

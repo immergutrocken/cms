@@ -118,7 +118,10 @@ export default {
             },
           },
         ],
-        annotations: [withCTA(externalLink), withCTA(internalLink("article"))],
+        annotations: [
+          withCTA(externalLink),
+          withCTA(internalLink("article", "artist")),
+        ],
       },
       of: [{ ...image, title: "Inline Image" }],
     },

@@ -5,8 +5,9 @@ import article from "./documents/article";
 import partner from "./documents/partner";
 import menu from "./documents/menu";
 import notification from "./documents/notification";
+import artist from "./documents/artist";
 
 export default createSchema({
   name: "default",
-  types: schemaTypes.concat([article, menu, partner, notification]),
+  types: schemaTypes.concat([article, artist, menu, partner, notification]),
 });

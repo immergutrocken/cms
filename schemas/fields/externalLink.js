@@ -11,10 +11,5 @@ export default {
       name: "url",
       type: "url",
     },
-    {
-      title: "Open in new tab",
-      name: "blank",
-      type: "boolean",
-    },
   ],
 };
