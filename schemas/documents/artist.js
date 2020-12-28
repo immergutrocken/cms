@@ -136,6 +136,7 @@ export default {
   preview: {
     select: {
       title: "languages.de.title",
+      subtitle: "languages.de.subtitle",
       media: "languages.de.banner",
     },
   },
