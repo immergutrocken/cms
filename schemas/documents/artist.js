@@ -21,6 +21,7 @@ const fields = [
     type: "string",
     name: "title",
     title: "Titel",
+    validation: (Rule) => Rule.required(),
   },
   {
     type: "string",
@@ -31,8 +32,13 @@ const fields = [
     ...image,
     title: "Banner",
     name: "banner",
+    validation: (Rule) => Rule.required(),
   },
-  { ...blockContent, of: [...blockContent.of, twoColumns, threeColumns] },
+  {
+    ...blockContent,
+    of: [...blockContent.of, twoColumns, threeColumns],
+    validation: (Rule) => Rule.required(),
+  },
 ];
 
 export default {
@@ -47,6 +53,7 @@ export default {
       title: "Autor",
       name: "author",
       type: "string",
+      validation: (Rule) => Rule.required(),
     },
     {
       type: "string",
@@ -59,6 +66,7 @@ export default {
         ],
         layout: "dropdown",
       },
+      validation: (Rule) => Rule.required(),
     },
     {
       type: "array",

@@ -12,6 +12,7 @@ const fields = [
     type: "string",
     name: "title",
     title: "Titel",
+    validation: (Rule) => Rule.required(),
   },
   {
     type: "string",
@@ -22,10 +23,12 @@ const fields = [
     ...image,
     title: "Banner",
     name: "banner",
+    validation: (Rule) => Rule.required(),
   },
   {
     ...blockContent,
     of: [...blockContent.of, contactForm, expander, twoColumns, threeColumns],
+    validation: (Rule) => Rule.required(),
   },
 ];
 
@@ -41,6 +44,7 @@ export default {
       title: "Autor",
       name: "author",
       type: "string",
+      validation: (Rule) => Rule.required(),
     },
     {
       title: "News",

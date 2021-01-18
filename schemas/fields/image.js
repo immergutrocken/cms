@@ -26,6 +26,7 @@ export default {
       title: "Credits",
       name: "credits",
       type: "string",
+      validation: (Rule) => Rule.required(),
     },
   ],
 };
