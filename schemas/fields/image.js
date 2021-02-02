@@ -21,6 +21,7 @@ export default {
       type: "string",
       description:
         "Text der angezeigt wird, wenn das Bild nicht geladen werden kann.",
+      validation: (Rule) => Rule.required(),
     },
     {
       title: "Credits",

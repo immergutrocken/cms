@@ -27,7 +27,29 @@ const fields = [
   },
   {
     ...blockContent,
-    of: [...blockContent.of, contactForm, expander, twoColumns, threeColumns],
+    of: [
+      ...blockContent.of,
+      contactForm,
+      expander,
+      {
+        type: "object",
+        name: "articleGallery",
+        title: "Artikel Galerie",
+        fields: [
+          {
+            type: "array",
+            name: "articles",
+            title: "Artikel",
+            of: [
+              {
+                type: "reference",
+                to: [{ type: "article" }],
+              },
+            ],
+          },
+        ],
+      },
+    ],
     validation: (Rule) => Rule.required(),
   },
 ];
@@ -58,5 +80,8 @@ export default {
       subtitle: "languages.de.subtitle",
       media: "languages.de.banner",
     },
+  },
+  initialValue: {
+    isNews: true,
   },
 };

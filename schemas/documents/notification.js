@@ -9,7 +9,7 @@ const fields = [
     name: "title",
     title: "Titel",
   },
-  blockContent,
+  { ...blockContent, validation: (Rule) => Rule.required() },
 ];
 
 const buildFields = () => {

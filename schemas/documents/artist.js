@@ -12,6 +12,7 @@ import {
   FaTwitter,
   FaVimeo,
   FaYoutube,
+  FaCompactDisc,
 } from "react-icons/fa";
 import { SiTiktok } from "react-icons/si";
 import { twoColumns, threeColumns } from "../fields/columns";
@@ -36,7 +37,7 @@ const fields = [
   },
   {
     ...blockContent,
-    of: [...blockContent.of, twoColumns, threeColumns],
+    of: [...blockContent.of],
     validation: (Rule) => Rule.required(),
   },
 ];
@@ -92,6 +93,7 @@ export default {
                   { title: "Vimeo", value: "Vimeo" },
                   { title: "TikTok", value: "TikTok" },
                   { title: "Spotify", value: "Spotify" },
+                  { title: "Label", value: "Label" },
                 ],
               },
             },
@@ -128,6 +130,9 @@ export default {
                   break;
                 case "Spotify":
                   media = FaSpotify;
+                  break;
+                case "Label":
+                  media = FaCompactDisc;
                   break;
                 default:
                   break;
