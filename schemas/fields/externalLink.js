@@ -10,6 +10,7 @@ export default {
       title: "URL",
       name: "url",
       type: "url",
+      validation: (Rule) => Rule.required(),
     },
   ],
 };
