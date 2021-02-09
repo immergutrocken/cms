@@ -1,11 +1,11 @@
 import { RiArticleLine } from "react-icons/ri";
+import { GiFiles } from "react-icons/gi";
 import { slug } from "../fields/slug";
 import image from "../fields/image";
 import blockContent from "../fields/blockContent";
 import contactForm from "../fields/contactForm";
 import expander from "../fields/expander";
 import localizedTabs from "./localizedTabs";
-import { threeColumns, twoColumns } from "../fields/columns";
 
 const fields = [
   {
@@ -35,6 +35,7 @@ const fields = [
         type: "object",
         name: "articleGallery",
         title: "Artikel Galerie",
+        icon: GiFiles,
         fields: [
           {
             type: "array",
@@ -48,6 +49,22 @@ const fields = [
             ],
           },
         ],
+        preview: {
+          select: {
+            article0: "articles.0.languages.de.title",
+            article1: "articles.1.languages.de.title",
+            article2: "articles.2.languages.de.title",
+            article3: "articles.3.languages.de.title",
+          },
+          prepare({ article0, article1, article2, article3 }) {
+            const articles = [article0, article1, article2, article3].filter(
+              Boolean
+            );
+            return {
+              title: articles.join(", "),
+            };
+          },
+        },
       },
     ],
     validation: (Rule) => Rule.required(),
