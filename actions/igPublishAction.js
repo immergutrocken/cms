@@ -1,9 +1,10 @@
 import { useState, useEffect } from "react";
-import { useDocumentOperation } from "@sanity/react-hooks";
+import { useDocumentOperation, useValidationStatus } from "@sanity/react-hooks";
 import { slugify } from "../schemas/fields/slug";
 
 export default function igPublishAction(props) {
   const { patch, publish } = useDocumentOperation(props.id, props.type);
+  const { isValidating, markers } = useValidationStatus(props.id, props.type);
   const [isPublishing, setIsPublishing] = useState(false);
 
   useEffect(() => {
@@ -11,7 +12,7 @@ export default function igPublishAction(props) {
   }, [props.draft]);
 
   return {
-    disabled: publish.disabled,
+    disabled: publish.disabled || isValidating || markers.length !== 0,
     label: isPublishing ? "Publishing..." : "Publish",
     onHandle: async () => {
       setIsPublishing(true);
