@@ -15,13 +15,13 @@
     "sanity"
   ],
   "dependencies": {
-    "@sanity/base": "^2.3.3",
+    "@sanity/base": "^2.3.8",
     "@sanity/components": "^2.2.6",
-    "@sanity/core": "^2.3.3",
+    "@sanity/core": "^2.3.8",
     "@sanity/dashboard": "^2.2.6",
-    "@sanity/default-layout": "^2.3.3",
+    "@sanity/default-layout": "^2.3.8",
     "@sanity/default-login": "^2.2.6",
-    "@sanity/desk-tool": "^2.3.3",
+    "@sanity/desk-tool": "^2.3.8",
     "@sanity/vision": "^2.2.6",
     "get-youtube-id": "^1.0.1",
     "prop-types": "^15.6",
