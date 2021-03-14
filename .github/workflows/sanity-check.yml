@@ -26,11 +26,8 @@ jobs:
       - name: install node.js
         uses: actions/setup-node@v2.1.3
         
-      - name: install sanity cli
-        run: npm install -g @sanity/cli
-        
       - name: sanity install
-        run: sanity install
+        run: npx sanity install
         
       - name: sanity check
-        run: sanity check
+        run: npm run test
