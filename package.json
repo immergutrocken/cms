@@ -9,19 +9,20 @@
   "scripts": {
     "start": "sanity start",
     "test": "sanity check",
-    "build": "sanity build public -y"
+    "build": "sanity build public -y",
+    "postinstall": "sanity install"
   },
   "keywords": [
     "sanity"
   ],
   "dependencies": {
-    "@sanity/base": "^2.6.0",
+    "@sanity/base": "^2.6.2",
     "@sanity/components": "^2.2.6",
-    "@sanity/core": "^2.6.1",
+    "@sanity/core": "^2.6.2",
     "@sanity/dashboard": "^2.2.6",
-    "@sanity/default-layout": "^2.6.0",
+    "@sanity/default-layout": "^2.6.2",
     "@sanity/default-login": "^2.2.6",
-    "@sanity/desk-tool": "^2.6.1",
+    "@sanity/desk-tool": "^2.6.3",
     "@sanity/vision": "^2.2.6",
     "get-youtube-id": "^1.0.1",
     "prop-types": "^15.6",
