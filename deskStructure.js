@@ -6,11 +6,11 @@ export default () =>
     .title("Content")
     .items([
       ...S.documentTypeListItems().filter(
-        (listItem) => !["artistOrder"].includes(listItem.getId())
+        (listItem) => !["sortings"].includes(listItem.getId())
       ),
       S.divider(),
       S.listItem()
-        .title("Künstler Reihenfolge")
+        .title("Sortierungen")
         .icon(MdFormatListNumbered)
-        .child(S.editor().schemaType("artistOrder").documentId("artistOrder")),
+        .child(S.editor().schemaType("sortings").documentId("sortings")),
     ]);

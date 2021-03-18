@@ -6,7 +6,7 @@ import partner from "./documents/partner";
 import menu from "./documents/menu";
 import notification from "./documents/notification";
 import artist from "./documents/artist";
-import artistOrder from "./documents/artistOrder";
+import sortings from "./documents/sortings";
 
 export default createSchema({
   name: "default",
@@ -16,6 +16,6 @@ export default createSchema({
     menu,
     partner,
     notification,
-    artistOrder,
+    sortings,
   ]),
 });
