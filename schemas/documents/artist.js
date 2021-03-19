@@ -15,7 +15,6 @@ import {
   FaCompactDisc,
 } from "react-icons/fa";
 import { SiTiktok } from "react-icons/si";
-import { twoColumns, threeColumns } from "../fields/columns";
 
 const fields = [
   {
