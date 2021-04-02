@@ -10,7 +10,7 @@
     "start": "sanity start",
     "test": "sanity check",
     "build": "sanity build public -y",
-    "install": "yarn install && sanity install",
+    "install": "sanity install",
     "upgrade": "yarn upgrade --latest @sanity/cli && sanity upgrade"
   },
   "keywords": [
