@@ -15,26 +15,26 @@
     "sanity"
   ],
   "dependencies": {
-    "@sanity/base": "^2.6.2",
+    "@sanity/base": "^2.7.4",
     "@sanity/components": "^2.2.6",
-    "@sanity/core": "^2.6.2",
-    "@sanity/dashboard": "^2.2.6",
-    "@sanity/default-layout": "^2.6.2",
-    "@sanity/default-login": "^2.2.6",
-    "@sanity/desk-tool": "^2.6.3",
-    "@sanity/vision": "^2.2.6",
+    "@sanity/core": "^2.7.4",
+    "@sanity/dashboard": "^2.7.0",
+    "@sanity/default-layout": "^2.7.4",
+    "@sanity/default-login": "^2.7.0",
+    "@sanity/desk-tool": "^2.7.4",
+    "@sanity/vision": "^2.7.4",
     "get-youtube-id": "^1.0.1",
     "prop-types": "^15.6",
-    "react": "^16.2",
-    "react-dom": "^16.2",
-    "react-icons": "^3.11.0",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "react-icons": "^4.2.0",
     "react-youtube": "^7.13.0",
     "sanity-plugin-content-model-graph": "^1.1.1",
     "sanity-plugin-media-library": "^1.0.2",
     "sanity-plugin-tabs": "^2.0.1"
   },
   "devDependencies": {
-    "@sanity/cli": "^2.6.0"
+    "@sanity/cli": "^2.7.4"
   },
   "repository": {
     "type": "git",
