@@ -15,7 +15,8 @@
     "@sanity/desk-tool",
     "tabs",
     "@sanity/dashboard",
-    "media-library"
+    "media-library",
+    "vercel-deploy"
   ],
   "env": {
     "development": {
