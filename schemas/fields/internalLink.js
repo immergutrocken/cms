@@ -12,5 +12,15 @@ export default (...references) => ({
       title: "Reference",
       to: references.map((reference) => ({ type: reference })),
     },
+    {
+      type: "url",
+      name: "url",
+      title: "Relative URL",
+      validation: (Rule) =>
+        Rule.uri({
+          allowRelative: true,
+          relativeOnly: true,
+        }),
+    },
   ],
 });
