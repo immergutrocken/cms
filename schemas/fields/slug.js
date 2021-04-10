@@ -1,12 +1,27 @@
 import sanityClient from "part:@sanity/base/client";
 
 export async function slugify(input) {
-  let slugyfiedTitle = input.title
+  const slugyfiedTitle = input.title
     .toLowerCase()
     .replace(/\s+/g, "-")
     .replace(/ä/g, "ae")
+    .replace(/á/g, "a")
+    .replace(/à/g, "a")
+    .replace(/â/g, "a")
+    .replace(/é/g, "e")
+    .replace(/è/g, "e")
+    .replace(/ê/g, "e")
+    .replace(/í/g, "i")
+    .replace(/ì/g, "i")
+    .replace(/î/g, "i")
     .replace(/ö/g, "oe")
+    .replace(/ó/g, "o")
+    .replace(/ò/g, "o")
+    .replace(/ô/g, "o")
     .replace(/ü/g, "ue")
+    .replace(/ú/g, "u")
+    .replace(/ù/g, "u")
+    .replace(/û/g, "u")
     .replace(/ß/g, "ss")
     .replace(/\./g, "")
     .replace(/,/g, "")
